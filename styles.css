@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Whisper&display=swap');
+
+:root{
+    --light-grey-color: #eeeeee;
+}
+
 html,body{
     margin: 0;
 }
@@ -6,3 +12,65 @@ html,body{
     box-sizing: border-box;
 }
 
+main{
+    background-color: var(--light-grey-color);
+}
+
+main .nav-bar{
+    box-shadow: 1px 1px 5px 1px lightgray;
+    background-color: white;
+}
+
+main .nav-bar .nav-container{
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 100px;
+    font-family: 'Caveat',cursive;
+}
+
+main .nav-bar .nav-container .company-name{
+    font-size: 3rem;
+}
+
+main .nav-bar .nav-container .login-button{
+    background-color: var(--light-grey-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 200ms;
+}
+
+main .nav-bar .nav-container .login-button:hover{
+    background-color: darkgray;
+    color: white;
+}
+
+main .nav-bar .nav-container *{
+    list-style: none;
+}
+
+main .library-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding-top: 10px;
+}
+
+main .library-section .add-book{
+    font-family: 'Caveat',cursive;
+    margin: 0;
+    font-size: 1.5rem;
+    transition: all 200ms;
+    cursor: pointer;
+}
+
+main .library-section .add-book:hover{
+    transform: scale(1.1);
+}
