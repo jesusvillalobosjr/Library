@@ -11,6 +11,19 @@
         <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class="modal">
+            <form action="" method="get" class="modal-content">
+                <h2 class="modal-title">Add New Book</h2>
+                <input type="text" name="book-title" class="book-title" placeholder="Title">
+                <input type="text" name="author" class="author" placeholder="Author">
+                <input type="number" name="pages" class="pages" placeholder="Pages">
+                <div class="read-checkbox">
+                    <label for="read">Have you read it?</label>
+                    <input type="checkbox" name="read" class="read" id="read">
+                </div>
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
+        </div>
         <main>
             <nav class="nav-bar">
                 <ul class="nav-container">

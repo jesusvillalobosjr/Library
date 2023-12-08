@@ -74,3 +74,64 @@ main .library-section .add-book{
 main .library-section .add-book:hover{
     transform: scale(1.1);
 }
+
+.modal{
+    background-color: rgba(100, 100, 100, 0.9);
+    justify-content: center;
+    align-items: center;
+    font-family: 'Caveat',cursive;
+    display: none;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    animation: fade-in 500ms forwards;
+}
+
+.modal .modal-content .modal-title{
+    margin: 0;
+}
+
+.modal .modal-content{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-grey-color);
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0;
+}
+
+.modal .modal-content input:not(.read){
+    width: 70%;
+    height: 30px;
+    font-family: 'Caveat',cursive;
+    font-size: 1.2rem;
+}
+
+.modal .modal-content .submit-button{
+    width: 30%;
+    border: none;
+    background-color: lightgreen;
+    padding: 10px 0;
+    border-radius: 10px;
+    transition: all 300ms;
+}
+
+.modal .modal-content .submit-button:hover{
+    transform: scale(1.1);
+    background: green;
+    color: white;
+}
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
