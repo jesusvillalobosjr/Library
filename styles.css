@@ -127,6 +127,46 @@ main .library-section .add-book:hover{
     color: white;
 }
 
+main .library-section .books{
+    width: 100%;
+    font-family: 'Caveat',cursive;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--light-grey-color);
+}
+
+main .library-section .books .book{
+    background-color: white;
+    width: 100%;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+main .library-section .books .book p{
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+main .library-section .books .book button:first-of-type{
+    border: none;
+    color: white;
+    padding: 5px;
+}
+
+main .library-section .books .book button{
+    width: 30%;
+    cursor: pointer;
+}
+
 @keyframes fade-in{
     0%{
         opacity: 0;
