@@ -73,11 +73,34 @@ function createBookElement(bookObj){
 }
 
 function bookSubmitted(e){
-    e.preventDefault();
-    const book = getBookAdded();
-    clearInput();
-    hideModalSubmit();
-    createBookElement(book);
+    let valid = true;
+    const invalidElements = [];
+    const formInputs = form.elements;
+    for(element of formInputs){
+        if(element.validity.valueMissing || !element.validity.valid){
+            valid = false;
+            invalidElements.push(element);
+        }
+    }
+
+    if(valid){
+        e.preventDefault();
+        const book = getBookAdded();
+        clearInput();
+        hideModalSubmit();
+        createBookElement(book);
+    }else{
+        for(element of invalidElements){
+            console.log(element.classList.add("invalid-input"));
+        }
+        setTimeout(setDefaultInputStyles,1000);
+    }
+}
+
+function setDefaultInputStyles(){
+    title.classList.remove("invalid-input");
+    author.classList.remove("invalid-input");
+    pages.classList.remove("invalid-input");
 }
 
 function getBookAdded(){
@@ -97,6 +120,7 @@ const author = document.querySelector(".book-author");
 const pages = document.querySelector(".book-pages");
 const read = document.querySelector(".read");
 const books = document.querySelector(".books");
+const form = document.querySelector(".modal-content");
 const red = "rgb(170,0,0)";
 const green = "lightgreen";
 let onModal = false;

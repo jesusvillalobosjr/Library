@@ -98,7 +98,7 @@ main .library-section .add-book:hover{
     display: flex;
     flex-direction: column;
     background-color: var(--light-grey-color);
-    width: 30%;
+    width: max(30%,250px);
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -125,6 +125,15 @@ main .library-section .add-book:hover{
     transform: scale(1.1);
     background: green;
     color: white;
+}
+
+.modal .modal-content input[type="text"]:focus:invalid,.modal .modal-content input[type="number"]:focus:invalid,
+.modal .modal-content input[type="number"]:focus:out-of-range{
+    outline-color: red;
+}
+
+.modal .modal-content input[type="text"]:focus:valid,.modal-content input[type="number"]:focus:valid{
+    outline-color: lightgreen;
 }
 
 main .library-section .books{
@@ -165,6 +174,12 @@ main .library-section .books .book button:first-of-type{
 main .library-section .books .book button{
     width: 30%;
     cursor: pointer;
+}
+
+.invalid-input{
+    outline: none;
+    border: 2px solid red;
+    border-radius: 5px;
 }
 
 @keyframes fade-in{
