@@ -40,15 +40,15 @@ function changeReadStatus(e){
 }
 
 function deleteBook(e){
-    const button = e.target;
-    const bookToDelete = document.querySelector(`.${button.id}`);
-    books.removeChild(bookToDelete);
+    const indexToDelete = parseInt(e.target.id);
+    bookList.splice(indexToDelete,1);
+    displayBooks();
 }
 
-function createBookElement(bookObj){
+function createBookElement(bookObj,index){
     const bookElement = document.createElement("div");
     bookElement.classList.add("book");
-    const bookID = `bookID-${id++}`;
+    const bookID = `bookID-${index}`;
     bookElement.classList.add(bookID);
     const bookTitle = document.createElement("p");
     bookTitle.textContent = `"${bookObj.title}"`;
@@ -65,11 +65,16 @@ function createBookElement(bookObj){
     bookRead.addEventListener("click",changeReadStatus)
     bookElement.appendChild(bookRead);
     const deleteButton = document.createElement("button");
-    deleteButton.id = bookID;
+    deleteButton.id = index;
     deleteButton.textContent = "Remove";
     deleteButton.addEventListener("click",deleteBook);
     bookElement.appendChild(deleteButton);
     books.appendChild(bookElement);
+}
+
+function displayBooks(){
+    books.innerHTML = "";
+    bookList.forEach((book,index) => createBookElement(book,index));
 }
 
 function bookSubmitted(e){
@@ -85,10 +90,10 @@ function bookSubmitted(e){
 
     if(valid){
         e.preventDefault();
-        const book = getBookAdded();
+        addBookToList();
         clearInput();
         hideModalSubmit();
-        createBookElement(book);
+        displayBooks();
     }else{
         for(element of invalidElements){
             console.log(element.classList.add("invalid-input"));
@@ -103,14 +108,17 @@ function setDefaultInputStyles(){
     pages.classList.remove("invalid-input");
 }
 
-function getBookAdded(){
+function addBookToList(){
     let userBookTitle = title.value;
     let userBookAuthor = author.value;
     let userBookPages = parseInt(pages.value);
     let userBookRead = read.checked;
-    return new Book(userBookTitle,userBookAuthor,userBookPages,userBookRead); 
+    let book =  new Book(userBookTitle,userBookAuthor,userBookPages,userBookRead); 
+    bookList.push(book);
+    return book;
 }
 
+const bookList = [];
 const addBook = document.querySelector(".add-book");
 const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal-content");

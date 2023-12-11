@@ -190,3 +190,9 @@ main .library-section .books .book button{
         opacity: 1;
     }
 }
+
+@media(max-width: 500px){
+    main .nav-bar .nav-container{
+        padding: 0 15px;
+    }
+}
