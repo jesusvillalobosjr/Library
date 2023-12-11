@@ -132,7 +132,6 @@ const form = document.querySelector(".modal-content");
 const red = "rgb(170,0,0)";
 const green = "lightgreen";
 let onModal = false;
-let id = 0;
 
 addBook.addEventListener("click",displayModal);
 modal.addEventListener("click",hideModal);
